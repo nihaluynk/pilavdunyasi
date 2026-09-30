@@ -16,6 +16,7 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -55,6 +56,12 @@ img {
 #topbar span {
   color: #aaa;
   margin-right: 16px;
+}
+#topbar .top-contact a {
+  color: inherit;
+}
+#topbar .top-contact a:hover {
+  color: #fff;
 }
 #topbar span i {
   color: var(--secondary);
@@ -1421,7 +1428,7 @@ section {
 .fctrl:focus {
   border-color: var(--primary);
 }
-.fcard {
+.form-card {
   background: #fff;
   border-radius: 18px;
   padding: 32px;
@@ -1672,6 +1679,9 @@ section {
 .ctinfo span {
   color: #fff;
   font-size: 0.87rem;
+}
+.ctinfo a {
+  color: inherit;
 }
 .ctsocrow {
   display: flex;
@@ -2481,7 +2491,7 @@ footer {
     width: 100%;
     border-radius: 12px;
   }
-  .fcard {
+  .form-card {
     padding: 22px 18px;
   }
 }

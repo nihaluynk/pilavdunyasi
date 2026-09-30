@@ -29,18 +29,12 @@
          <div class="container">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                <div class="top-contact d-flex flex-wrap">
-                  <span><F class="fas fa-phone-alt"></i>+90 532 394 45 99</span>
-                  <span><i class="fas fa-envelope"></i>merhaba@cigkofte.com</span>
+                  <span><i class="fas fa-phone-alt"></i><a href="tel:+905323944599">+90 532 394 45 99</a></span>
+                  <span><i class="fas fa-envelope"></i><a href="mailto:merhaba@cigkofte.com">merhaba@cigkofte.com</a></span>
                   <span><i class="fas fa-map-marker-alt"></i>Piri Reis Caddesi, Antalya</span>
                </div>
                <div class="d-flex align-items-center gap-3">
                 
-                  <div class="tsoc">
-                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                     <a href="#"><i class="fab fa-instagram"></i></a>
-                     <a href="#"><i class="fab fa-tiktok"></i></a>
-                     <a href="#"><i class="fab fa-youtube"></i></a>
-                  </div>
                </div>
             </div>
          </div>
@@ -50,7 +44,7 @@
          ============================================================ -->
       <nav class="navbar navbar-expand-lg" id="nav">
          <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#hero">
                <div class="blogo">
                   <div class="bico"><i class="fas fa-utensils"></i></div>
                   <div>
@@ -88,31 +82,31 @@
          <div class="sovbox">
             <h4>Bugün ne yemek istersin?</h4>
             <div class="sovinput">
-               <input type="text" id="searchInput" placeholder="Çiğköfte, tavuk pilav ara..." autocomplete="off"/>
-               <button><i class="fas fa-search"></i></button>
+               <input type="search" id="searchInput" placeholder="Çiğköfte, tavuk pilav ara..." autocomplete="off" aria-label="Menüde ürün ara"/>
+               <button id="searchSubmit" type="button" aria-label="Menüde ara"><i class="fas fa-search"></i></button>
             </div>
             <!-- Categories inside search box -->
             <div class="sovcats">
                <div class="sovcat active" data-cat="all">
-                  <img src="img/menu/about1.jpg" alt=""/>Tüm Ürünler
+                  <img src="img/menu/24.jpg" alt=""/>Tüm Ürünler
                </div>
                <div class="sovcat" data-cat="burgers">
-                  <img src="img/menu/durum.jpg" alt=""/>Çiğköfteler
+                  <img src="img/menu/6.jpg" alt=""/>Çiğköfteler
                </div>
                <div class="sovcat" data-cat="pizza">
-                  <img src="img/menu/tavukpilav.jpg" alt=""/>Tavuk Pilav
+                  <img src="img/menu/5.jpg" alt=""/>Tavuk Pilav
                </div>
                <div class="sovcat" data-cat="chicken">
-                  <img src="img/menu/limonata.jpg" alt=""/>İçecekler
+                  <img src="img/menu/1.jpg" alt=""/>İçecekler
                </div>
                <div class="sovcat" data-cat="desserts">
-                  <img src="img/portfolio/roka.jpg" alt=""/>Yeşillikler
+                  <img src="img/menu/16.jpg" alt=""/>Yeşillikler
                </div>
                <div class="sovcat" data-cat="wraps">
-                  <img src="img/menu/acisos.jpg" alt=""/>Soslar
+                  <img src="img/menu/4.jpg" alt=""/>Soslar
                </div>
                <div class="sovcat" data-cat="burgers">
-                  <img src="img/portfolio/lavas.jpg" alt=""/>Lavaş
+                  <img src="img/menu/6.jpg" alt=""/>Lavaş
                </div>
             </div>
             <div class="sovtrend">
@@ -380,7 +374,7 @@
                      data-img="img/menu/13.jpg"
                      data-title="Mevsim Yeşillikleri"
                      data-cat="Yeşillikler"
-                     data-price="8.99" data-old="11.99"
+                     data-price="" data-old=""
                      data-rating="4.9" data-reviews="56"
                      data-cal="390" data-time="8"
                      data-desc="Taze mevsim yeşillikleri; roka, maydanoz, nane, havuç, marul ve domatesle servis edilir."
@@ -435,56 +429,56 @@
                   </div>
                </div>
                <div class="col-sm-6 col-lg-4 mwrap" data-c="desserts" data-aos="fade-up">
-                  <div class="mcard" data-img="img/menu/15.jpg" data-title="Havuç" data-cat="Ürün" data-price="" data-desc="Ürün açıklamasını buraya ekleyin." data-tags="">
+                  <div class="mcard" data-img="img/menu/15.jpg" data-title="Havuç" data-cat="Ürün" data-price="" data-desc="Ürün ve güncel fiyat bilgisi için WhatsApp'tan ulaşın." data-tags="">
                      <div class="mimg"><img src="img/menu/15.jpg" alt="Havuç"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
-                     <div class="mbody"><div class="mcat">Yeni Ürün</div><div class="mtit">Havuç</div><div class="mdesc">Taze mevsim yeşillikleri</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
+                     <div class="mbody"><div class="mcat">Ekstra</div><div class="mtit">Havuç</div><div class="mdesc">Ürün ve fiyat bilgisi için WhatsApp'tan ulaşın</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
                   </div>
                </div>
                <div class="col-sm-6 col-lg-4 mwrap" data-c="desserts" data-aos="fade-up">
-                  <div class="mcard" data-img="img/menu/16.jpg" data-title="Roka" data-cat="Ürün" data-price="" data-desc="Ürün açıklamasını buraya ekleyin." data-tags="">
+                  <div class="mcard" data-img="img/menu/16.jpg" data-title="Roka" data-cat="Ürün" data-price="" data-desc="Ürün ve güncel fiyat bilgisi için WhatsApp'tan ulaşın." data-tags="">
                      <div class="mimg"><img src="img/menu/16.jpg" alt="Roka"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
                      <div class="mbody"><div class="mcat">Ekstra</div><div class="mtit">Roka</div><div class="mdesc">Taze mevsim yeşillikleri</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
                   </div>
                </div>
                <div class="col-sm-6 col-lg-4 mwrap" data-c="wraps" data-aos="fade-up">
-                  <div class="mcard" data-img="img/menu/4.jpg" data-title="Aci Sos" data-cat="Ürün" data-price="" data-desc="Ürün açıklamasını buraya ekleyin." data-tags="">
-                     <div class="mimg"><img src="img/menu/4.jpg" alt="Aci Sos"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
-                     <div class="mbody"><div class="mcat">Ekstra</div><div class="mtit">Aci Sos</div><div class="mdesc">Taze Sos</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
+                  <div class="mcard" data-img="img/menu/4.jpg" data-title="Acı Sos" data-cat="Ürün" data-price="" data-desc="Ürün ve güncel fiyat bilgisi için WhatsApp'tan ulaşın." data-tags="">
+                     <div class="mimg"><img src="img/menu/4.jpg" alt="Acı sos"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Ekstra</div><div class="mtit">Acı Sos</div><div class="mdesc">Ürün ve fiyat bilgisi için WhatsApp'tan ulaşın</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
                   </div>
                </div>
                <div class="col-sm-6 col-lg-4 mwrap" data-c="chicken" data-aos="fade-up">
-                  <div class="mcard" data-img="img/menu/19.jpg" data-title="Kola" data-cat="Ürün" data-price="" data-desc="Ürün açıklamasını buraya ekleyin." data-tags="">
+                  <div class="mcard" data-img="img/menu/19.jpg" data-title="Kola" data-cat="Ürün" data-price="" data-desc="Ürün ve güncel fiyat bilgisi için WhatsApp'tan ulaşın." data-tags="">
                      <div class="mimg"><img src="img/menu/19.jpg" alt="Kola"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
                      <div class="mbody"><div class="mcat">Icecek</div><div class="mtit">Kola</div><div class="mdesc">Soguk Icecek</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
                   </div>
                </div>
                <div class="col-sm-6 col-lg-4 mwrap" data-c="chicken" data-aos="fade-up">
-                  <div class="mcard" data-img="img/menu/1.jpg" data-title="Limonata" data-cat="Ürün" data-price="" data-desc="Ürün açıklamasını buraya ekleyin." data-tags="">
+                  <div class="mcard" data-img="img/menu/1.jpg" data-title="Limonata" data-cat="Ürün" data-price="" data-desc="Ürün ve güncel fiyat bilgisi için WhatsApp'tan ulaşın." data-tags="">
                      <div class="mimg"><img src="img/menu/1.jpg" alt="Limonata"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
                      <div class="mbody"><div class="mcat">Icecek</div><div class="mtit">Limonata</div><div class="mdesc">Taze mevsim içecekleri</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
                   </div>
                </div>
                         <div class="col-sm-6 col-lg-4 mwrap" data-c="chicken" data-aos="fade-up">
-                  <div class="mcard" data-img="img/menu/31.jpg" data-title="Salgam" data-cat="Ürün" data-price="" data-desc="Ürün açıklamasını buraya ekleyin." data-tags="">
-                     <div class="mimg"><img src="img/menu/31.jpg" alt="Salgam"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
-                     <div class="mbody"><div class="mcat">Icecek</div><div class="mtit">Salgam</div><div class="mdesc">Mis Gibi Salgami</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
+                  <div class="mcard" data-img="img/menu/31.jpg" data-title="Şalgam" data-cat="Ürün" data-price="" data-desc="Ürün ve güncel fiyat bilgisi için WhatsApp'tan ulaşın." data-tags="">
+                     <div class="mimg"><img src="img/menu/31.jpg" alt="Şalgam"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">İçecek</div><div class="mtit">Şalgam</div><div class="mdesc">Ürün ve fiyat bilgisi için WhatsApp'tan ulaşın</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
                   </div>
                </div> 
                <div class="col-sm-6 col-lg-4 mwrap" data-c="all" data-aos="fade-up">
-                  <div class="mcard" data-img="img/menu/29.jpg" data-title="Misir" data-cat="Ürün" data-price="" data-desc="Ürün açıklamasını buraya ekleyin." data-tags="">
-                     <div class="mimg"><img src="img/menu/29.jpg" alt="Misir"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
-                     <div class="mbody"><div class="mcat">Ekstra</div><div class="mtit">Misir</div><div class="mdesc">Taze mevsim sebzeleri</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
+                  <div class="mcard" data-img="img/menu/29.jpg" data-title="Mısır" data-cat="Ürün" data-price="" data-desc="Ürün ve güncel fiyat bilgisi için WhatsApp'tan ulaşın." data-tags="">
+                     <div class="mimg"><img src="img/menu/29.jpg" alt="Mısır"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
+                     <div class="mbody"><div class="mcat">Ekstra</div><div class="mtit">Mısır</div><div class="mdesc">Ürün ve fiyat bilgisi için WhatsApp'tan ulaşın</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
                   </div>
                </div>
                <div class="col-sm-6 col-lg-4 mwrap" data-c="all" data-aos="fade-up">
-                  <div class="mcard" data-img="img/menu/30.jpg" data-title="Cips" data-cat="Ürün" data-price="" data-desc="Ürün açıklamasını buraya ekleyin." data-tags="">
+                  <div class="mcard" data-img="img/menu/30.jpg" data-title="Cips" data-cat="Ürün" data-price="" data-desc="Ürün ve güncel fiyat bilgisi için WhatsApp'tan ulaşın." data-tags="">
                      <div class="mimg"><img src="img/menu/30.jpg" alt="Cips"/><div class="mhrt"><i class="far fa-heart"></i></div></div>
                      <div class="mbody"><div class="mcat">Ekstra</div><div class="mtit">Cips</div><div class="mdesc">Citir Citir Cips</div><div class="mfoot"><div><div class="mprice"></div></div><button class="madd" title="Detayları Gör"><i class="fas fa-plus"></i></button></div></div>
                   </div>
                </div>
                
             <!-- end #mgrid -->
-            <div class="text-center mt-5"><a href="#" class="btn-red"><i class="fas fa-th-large"></i>Tüm Menüyü Gör</a></div>
+            <div class="text-center mt-5"><a href="https://wa.me/905323944599?text=Merhaba%2C%20men%C3%BC%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F" class="btn-red" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>WhatsApp'tan Bilgi Al</a></div>
          </div>
       </section>
 
@@ -497,7 +491,7 @@
       <div id="menuPop">
          <div class="mpbox">
             <button class="mpclose" id="mpClose"><i class="fas fa-times"></i></button>
-            <div class="mpimg"><img id="mpImg" src="" alt=""/></div>
+            <div class="mpimg"><img id="mpImg" src="img/menu/7.jpg" alt=""/></div>
             <div class="mpbody">
                <div id="mpCat"></div>
                <div id="mpTitle"></div>
@@ -512,7 +506,7 @@
                   <span style="font-size:.82rem;color:#aaa;margin-left:9px;">porsiyon</span>
                </div>
                <div class="mptags" id="mpTags"></div>
-               <button class="mpaddcart" id="mpAddCart"><i class="fas fa-shopping-cart"></i>Sepete Ekle</button>
+               <button class="mpaddcart" id="mpAddCart"><i class="fab fa-whatsapp"></i>WhatsApp ile Sipariş Ver</button>
             </div>
          </div>
       </div>
@@ -665,7 +659,7 @@
                         </div>
                         <div class="d-flex align-items-center gap-3">
                            <div style="width:46px;height:46px;border-radius:11px;background:rgba(232,40,26,.2);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.1rem;flex-shrink:0;"><i class="fas fa-phone-alt"></i></div>
-                           <div><strong style="display:block;color:#ccc;font-size:.78rem;text-transform:uppercase;letter-spacing:.8px;">Rezervasyon İçin Arayın</strong><span style="color:#fff;font-size:.87rem;">+90 532 394 45 99</span></div>
+                           <div><strong style="display:block;color:#ccc;font-size:.78rem;text-transform:uppercase;letter-spacing:.8px;">Rezervasyon İçin Arayın</strong><a href="tel:+905323944599" style="color:#fff;font-size:.87rem;">+90 532 394 45 99</a></div>
                         </div>
                         <div class="d-flex align-items-center gap-3">
                            <div style="width:46px;height:46px;border-radius:11px;background:rgba(232,40,26,.2);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.1rem;flex-shrink:0;"><i class="fas fa-users"></i></div>
@@ -679,14 +673,15 @@
                   </div>
                </div>
                <div class="col-lg-8" data-aos="fade-left">
-                  <div class="fcard">
+                  <form class="form-card" id="reservationForm" method="post">
                      <div class="row g-3">
-                        <div class="col-sm-6"><label class="flbl">Ad Soyad *</label><input type="text" class="fctrl" placeholder="Ahmet Yılmaz"/></div>
-                        <div class="col-sm-6"><label class="flbl">Telefon Numarası *</label><input type="tel" class="fctrl" placeholder="+90 555 555 55 55"/></div>
-                        <div class="col-sm-6"><label class="flbl">E-posta Adresi *</label><input type="email" class="fctrl" placeholder="ahmet@email.com"/></div>
+                        <div class="col-sm-6"><label class="flbl" for="reservationName">Ad Soyad *</label><input id="reservationName" name="name" type="text" class="fctrl" placeholder="Ad Soyad" autocomplete="name" required/></div>
+                        <div class="col-sm-6"><label class="flbl" for="reservationPhone">Telefon Numarası *</label><input id="reservationPhone" name="phone" type="tel" class="fctrl" placeholder="+90 555 555 55 55" autocomplete="tel" required/></div>
+                        <div class="col-sm-6"><label class="flbl" for="reservationEmail">E-posta Adresi</label><input id="reservationEmail" name="email" type="email" class="fctrl" placeholder="ornek@email.com" autocomplete="email"/></div>
                         <div class="col-sm-6">
-                           <label class="flbl">Kişi Sayısı *</label>
-                           <select class="fctrl">
+                           <label class="flbl" for="reservationParty">Kişi Sayısı *</label>
+                           <select id="reservationParty" name="party" class="fctrl" required>
+                              <option value="">Seçin</option>
                               <option>1 kişi</option>
                               <option>2 kişi</option>
                               <option>3 - 4 kişi</option>
@@ -695,10 +690,11 @@
                               <option>10+ kişi</option>
                            </select>
                         </div>
-                        <div class="col-sm-6"><label class="flbl">Tarih *</label><input type="date" class="fctrl"/></div>
+                        <div class="col-sm-6"><label class="flbl" for="reservationDate">Tarih *</label><input id="reservationDate" name="date" type="date" class="fctrl" required/></div>
                         <div class="col-sm-6">
-                           <label class="flbl">Saat *</label>
-                           <select class="fctrl">
+                           <label class="flbl" for="reservationTime">Saat *</label>
+                           <select id="reservationTime" name="time" class="fctrl" required>
+                              <option value="">Seçin</option>
                               <option>09:00 </option>
                               <option>10:00 </option>
                               <option>11:00 </option>
@@ -712,14 +708,14 @@
                               <option>19:00 </option>
                            </select>
                         </div>
-                        <div class="col-12"><label class="flbl">Özel İstekler</label><textarea class="fctrl" rows="3" placeholder="Alerjiler, beslenme tercihleri, özel günler..."></textarea></div>
-                        <div class="col-12"><button class="btn-red w-100 justify-content-center" id="resBtn"><i class="fas fa-calendar-check"></i>Rezervasyonu Onayla</button></div>
+                        <div class="col-12"><label class="flbl" for="reservationRequests">Özel İstekler</label><textarea id="reservationRequests" name="requests" class="fctrl" rows="3" placeholder="Özel istekleriniz"></textarea></div>
+                        <div class="col-12"><button type="submit" class="btn-red w-100 justify-content-center" id="resBtn"><i class="fab fa-whatsapp"></i>WhatsApp ile Rezervasyon İste</button></div>
                      </div>
                      <div class="sucmsg" id="resOk">
                         <i class="fas fa-check-circle"></i>
-                        <p>Rezervasyonunuz oluşturuldu! Kısa süre içinde e-posta ile onaylayacağız.</p>
+                        <p>WhatsApp sohbeti açıldı. Talebinizi iletmek için mesajı gönderin; işletme onayıyla rezervasyonunuz kesinleşir.</p>
                      </div>
-                  </div>
+                  </form>
                </div>
             </div>
          </div>
@@ -749,33 +745,27 @@
                      </div>
                      <div class="ctitem">
                         <div class="cticon"><i class="fas fa-phone-alt"></i></div>
-                        <div class="ctinfo"><strong>Telefon</strong><span>+90 532 394 45 99</span></div>
+                        <div class="ctinfo"><strong>Telefon</strong><span><a href="tel:+905323944599">+90 532 394 45 99</a></span></div>
                      </div>
                      <div class="ctitem">
                         <div class="cticon"><i class="fas fa-envelope"></i></div>
-                        <div class="ctinfo"><strong>E-posta</strong><span>merhaba@cigkofte.com</span></div>
+                        <div class="ctinfo"><strong>E-posta</strong><span><a href="mailto:merhaba@cigkofte.com">merhaba@cigkofte.com</a></span></div>
                      </div>
                      <div class="ctitem">
                         <div class="cticon"><i class="fas fa-clock"></i></div>
                         <div class="ctinfo"><strong>Çalışma Saatleri</strong><span>Her gün: 09.00 - 23.00</span></div>
                      </div>
-                     <div class="ctsocrow">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                     </div>
                   </div>
                </div>
                <div class="col-lg-8" data-aos="fade-left">
-                  <div class="fcard">
+                  <form class="form-card" id="contactForm" method="post">
                      <div class="row g-3">
-                        <div class="col-sm-6"><label class="flbl">Ad Soyad *</label><input type="text" class="fctrl" placeholder="Adınız Soyadınız"/></div>
-                        <div class="col-sm-6"><label class="flbl">E-posta Adresi *</label><input type="email" class="fctrl" placeholder="ornek@eposta.com"/></div>
-                        <div class="col-sm-6"><label class="flbl">Telefon Numarası</label><input type="tel" class="fctrl" placeholder="+90 555 555 55 55"/></div>
+                        <div class="col-sm-6"><label class="flbl" for="contactName">Ad Soyad *</label><input id="contactName" name="name" type="text" class="fctrl" placeholder="Ad Soyad" autocomplete="name" required/></div>
+                        <div class="col-sm-6"><label class="flbl" for="contactEmail">E-posta Adresi</label><input id="contactEmail" name="email" type="email" class="fctrl" placeholder="ornek@eposta.com" autocomplete="email"/></div>
+                        <div class="col-sm-6"><label class="flbl" for="contactPhone">Telefon Numarası</label><input id="contactPhone" name="phone" type="tel" class="fctrl" placeholder="+90 555 555 55 55" autocomplete="tel"/></div>
                         <div class="col-sm-6">
-                           <label class="flbl">Konu *</label>
-                           <select class="fctrl">
+                           <label class="flbl" for="contactSubject">Konu *</label>
+                           <select id="contactSubject" name="subject" class="fctrl" required>
                               <option>Genel</option>
                               <option>Toplu Sipariş ve Davetler</option>
                               <option>Geri Bildirim</option>
@@ -783,14 +773,14 @@
                              
                            </select>
                         </div>
-                        <div class="col-12"><label class="flbl">Mesaj *</label><textarea class="fctrl" rows="5" placeholder="Mesajınızı buraya yazın..."></textarea></div>
-                        <div class="col-12"><button class="btn-red" id="ctcBtn"><i class="fas fa-paper-plane"></i>Mesaj Gönder</button></div>
+                        <div class="col-12"><label class="flbl" for="contactMessage">Mesaj *</label><textarea id="contactMessage" name="message" class="fctrl" rows="5" placeholder="Mesajınızı buraya yazın..." required></textarea></div>
+                        <div class="col-12"><button type="submit" class="btn-red" id="ctcBtn"><i class="fab fa-whatsapp"></i>WhatsApp ile İletişime Geç</button></div>
                      </div>
                      <div class="sucmsg" id="ctcOk">
                         <i class="fas fa-check-circle"></i>
-                        <p>Mesajınız alındı. En kısa sürede size dönüş yapacağız.</p>
+                        <p>WhatsApp sohbeti açıldı. Mesajınızı iletmek için Gönder'e dokunun.</p>
                      </div>
-                  </div>
+                  </form>
                </div>
             </div>
          </div>

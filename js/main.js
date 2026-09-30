@@ -52,6 +52,16 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
 
 
 var searchOv = document.getElementById('searchOv');
+var searchInput = document.getElementById('searchInput');
+
+function searchMenu(query) {
+    var term = query.trim().toLocaleLowerCase('tr-TR');
+    document.querySelectorAll('.mwrap').forEach(function(wrap) {
+        var card = wrap.querySelector('.mcard');
+        var content = [card.getAttribute('data-title'), card.getAttribute('data-cat'), card.getAttribute('data-desc'), card.textContent].join(' ').toLocaleLowerCase('tr-TR');
+        wrap.classList.toggle('gone', term && !content.includes(term));
+    });
+}
 
 document.getElementById('navSearchBtn').addEventListener('click', function() {
     searchOv.classList.add('open');
@@ -62,6 +72,13 @@ document.getElementById('navSearchBtn').addEventListener('click', function() {
 });
 
 document.getElementById('searchClose').addEventListener('click', closeSearch);
+searchInput.addEventListener('input', function() {
+    searchMenu(this.value);
+});
+document.getElementById('searchSubmit').addEventListener('click', function() {
+    closeSearch();
+    document.getElementById('menu').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 
 // Close when clicking backdrop
 searchOv.addEventListener('click', function(e) {
@@ -81,6 +98,7 @@ document.querySelectorAll('.sovcat').forEach(function(btn) {
         });
         this.classList.add('active');
         var f = this.getAttribute('data-cat');
+        searchInput.value = '';
         closeSearch();
         setTimeout(function() {
             filterMenu(f);
@@ -96,7 +114,9 @@ document.querySelectorAll('.sovcat').forEach(function(btn) {
 document.querySelectorAll('.sovtrend .ttag').forEach(function(t) {
     t.addEventListener('click', function() {
         document.getElementById('searchInput').value = this.textContent.trim();
-        document.getElementById('searchInput').focus();
+        searchMenu(this.textContent.trim());
+        closeSearch();
+        document.getElementById('menu').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
 
@@ -171,7 +191,6 @@ function openMenuPop(card) {
     var title = card.getAttribute('data-title');
     var cat = card.getAttribute('data-cat');
     var price = card.getAttribute('data-price');
-    var old = card.getAttribute('data-old');
     var rating = parseFloat(card.getAttribute('data-rating'));
     var reviews = card.getAttribute('data-reviews');
     var cal = card.getAttribute('data-cal');
@@ -196,10 +215,10 @@ function openMenuPop(card) {
     }
 
     document.getElementById('mpDesc').textContent = desc;
-    document.getElementById('mpIngredients').textContent = ingredients;
+    var ingredientsEl = document.getElementById('mpIngredients');
+    if (ingredientsEl) ingredientsEl.textContent = ingredients;
 
-    document.getElementById('mpPrice').innerHTML =
-        price + (old ? '<small style="color:#ccc;text-decoration:line-through;margin-left:8px;font-size:1rem;">' + old + '</small>' : '');
+    document.getElementById('mpPrice').textContent = price ? price + ' TL' : 'Fiyat ve teslimat bilgisi WhatsApp üzerinden paylaşılır.';
 
     var metadata = [];
     if (cal) metadata.push('<div class="mpm"><div class="mpmv">' + cal + ' kcal / ' + calUnit + '</div><div class="mpml">Yaklaşık Kalori</div></div>');
@@ -214,7 +233,7 @@ function openMenuPop(card) {
 
     mpQty = 1;
     document.getElementById('mpQnum').textContent = 1;
-    document.getElementById('mpAddCart').innerHTML = '<i class="fas fa-shopping-cart"></i> Sepete Ekle';
+    document.getElementById('mpAddCart').innerHTML = '<i class="fab fa-whatsapp"></i> WhatsApp ile Sipariş Ver';
     document.getElementById('mpAddCart').style.background = '';
 
     menuPop.classList.add('open');
@@ -223,6 +242,11 @@ function openMenuPop(card) {
 
 // Card click open popup
 document.querySelectorAll('.mcard').forEach(function(card) {
+    var priceDisplay = card.querySelector('.mprice');
+    if (priceDisplay) {
+        var price = card.getAttribute('data-price');
+        priceDisplay.textContent = price ? price + ' TL' : 'Fiyat için WhatsApp';
+    }
     card.addEventListener('click', function() {
         openMenuPop(this);
     });
@@ -266,52 +290,54 @@ document.getElementById('mpMinus').addEventListener('click', function() {
     if (mpQty > 1) document.getElementById('mpQnum').textContent = --mpQty;
 });
 
-// Add to cart button
+var whatsappNumber = '905323944599';
+
+function openWhatsAppMessage(message) {
+    var url = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
+    var chatWindow = window.open(url, '_blank');
+    if (chatWindow) {
+        chatWindow.opener = null;
+    } else {
+        window.location.assign(url);
+    }
+}
+
+function sendFormToWhatsApp(form, heading, confirmationId) {
+    var labels = {
+        name: 'Ad Soyad',
+        phone: 'Telefon',
+        email: 'E-posta',
+        party: 'Kişi sayısı',
+        date: 'Tarih',
+        time: 'Saat',
+        requests: 'Özel istekler',
+        subject: 'Konu',
+        message: 'Mesaj'
+    };
+    var lines = ['Merhaba, ' + heading + '.'];
+    new FormData(form).forEach(function(value, key) {
+        if (labels[key] && value) lines.push(labels[key] + ': ' + value);
+    });
+    openWhatsAppMessage(lines.join('\n'));
+    var confirmation = document.getElementById(confirmationId);
+    confirmation.style.display = 'block';
+    confirmation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
 document.getElementById('mpAddCart').addEventListener('click', function() {
-    var cnt = parseInt(document.getElementById('cartCount').textContent) + mpQty;
-    document.getElementById('cartCount').textContent = cnt;
-    this.innerHTML = '<i class="fas fa-check"></i> Sepete Eklendi!';
-    this.style.background = 'linear-gradient(135deg,var(--green),#1a4a35)';
-    var self = this;
-    setTimeout(function() {
-        closeMenuPop();
-        self.innerHTML = '<i class="fas fa-shopping-cart"></i> Sepete Ekle';
-        self.style.background = '';
-    }, 1000);
+    var title = document.getElementById('mpTitle').textContent;
+    openWhatsAppMessage('Merhaba, sipariş vermek istiyorum.\nÜrün: ' + title + '\nAdet: ' + mpQty + '\nGüncel fiyat ve teslimat bilgisi hakkında bilgi verebilir misiniz?');
+    closeMenuPop();
 });
 
-
-document.getElementById('resBtn').addEventListener('click', function() {
-    var btn = this;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Rezervasyon gönderiliyor...';
-    btn.disabled = true;
-    setTimeout(function() {
-        btn.innerHTML = '<i class="fas fa-calendar-check"></i> Rezervasyonu Onayla';
-        btn.disabled = false;
-        var ok = document.getElementById('resOk');
-        ok.style.display = 'block';
-        ok.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-        });
-    }, 1500);
+document.getElementById('reservationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    sendFormToWhatsApp(this, 'rezervasyon talebim var', 'resOk');
 });
 
-
-document.getElementById('ctcBtn').addEventListener('click', function() {
-    var btn = this;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
-    btn.disabled = true;
-    setTimeout(function() {
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Mesaj Gönder';
-        btn.disabled = false;
-        var ok = document.getElementById('ctcOk');
-        ok.style.display = 'block';
-        ok.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-        });
-    }, 1500);
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    sendFormToWhatsApp(this, 'iletişime geçmek istiyorum', 'ctcOk');
 });
 
 
@@ -395,7 +421,10 @@ new Swiper('.tesSwiper', {
 var cH = 8,
     cM = 45,
     cS = 30;
-setInterval(function() {
+var countdownHours = document.getElementById('cdH');
+var countdownMinutes = document.getElementById('cdM');
+var countdownSeconds = document.getElementById('cdS');
+if (countdownHours && countdownMinutes && countdownSeconds) setInterval(function() {
     cS--;
     if (cS < 0) {
         cS = 59;
@@ -410,13 +439,14 @@ setInterval(function() {
         cM = 45;
         cS = 30;
     }
-    document.getElementById('cdH').textContent = String(cH).padStart(2, '0');
-    document.getElementById('cdM').textContent = String(cM).padStart(2, '0');
-    document.getElementById('cdS').textContent = String(cS).padStart(2, '0');
+    countdownHours.textContent = String(cH).padStart(2, '0');
+    countdownMinutes.textContent = String(cM).padStart(2, '0');
+    countdownSeconds.textContent = String(cS).padStart(2, '0');
 }, 1000);
 
 /* â”€â”€ NEWSLETTER â”€â”€ */
-document.getElementById('nlBtn').addEventListener('click', function() {
+var newsletterButton = document.getElementById('nlBtn');
+if (newsletterButton) newsletterButton.addEventListener('click', function() {
     var email = document.getElementById('nlEmail').value;
     if (email && email.includes('@')) {
         var btn = this;
