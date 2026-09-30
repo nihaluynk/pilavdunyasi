@@ -31,6 +31,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
             e.preventDefault();
             // Close Bootstrap mobile navbar if open
             var navCollapse = document.getElementById('navmenu');
+            var scrollBehavior = href === '#contact-section' ? 'instant' : 'smooth';
             if (navCollapse && navCollapse.classList.contains('show')) {
                 var bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
                 if (bsCollapse) {
@@ -43,7 +44,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
             setTimeout(function() {
                 window.scrollTo({
                     top: t.offsetTop - 78,
-                    behavior: 'smooth'
+                    behavior: scrollBehavior
                 });
             }, 50);
         }
@@ -184,13 +185,12 @@ document.querySelectorAll('.catcard').forEach(function(card) {
 
 
 var menuPop = document.getElementById('menuPop');
-var mpQty = 1;
-
 function openMenuPop(card) {
     var img = card.getAttribute('data-img');
     var title = card.getAttribute('data-title');
     var cat = card.getAttribute('data-cat');
     var price = card.getAttribute('data-price');
+    var priceLabel = card.getAttribute('data-price-label');
     var rating = parseFloat(card.getAttribute('data-rating'));
     var reviews = card.getAttribute('data-reviews');
     var cal = card.getAttribute('data-cal');
@@ -218,7 +218,7 @@ function openMenuPop(card) {
     var ingredientsEl = document.getElementById('mpIngredients');
     if (ingredientsEl) ingredientsEl.textContent = ingredients;
 
-    document.getElementById('mpPrice').textContent = price ? price + ' TL' : 'Fiyat ve teslimat bilgisi WhatsApp üzerinden paylaşılır.';
+    document.getElementById('mpPrice').textContent = price ? (priceLabel || price + ' TL') : '';
 
     var metadata = [];
     if (cal) metadata.push('<div class="mpm"><div class="mpmv">' + cal + ' kcal / ' + calUnit + '</div><div class="mpml">Yaklaşık Kalori</div></div>');
@@ -231,21 +231,21 @@ function openMenuPop(card) {
             return '<span class="mptag">' + t.trim() + '</span>';
         }).join('');
 
-    mpQty = 1;
-    document.getElementById('mpQnum').textContent = 1;
-    document.getElementById('mpAddCart').innerHTML = '<i class="fab fa-whatsapp"></i> WhatsApp ile Sipariş Ver';
-    document.getElementById('mpAddCart').style.background = '';
-
     menuPop.classList.add('open');
     document.body.style.overflow = 'hidden';
 }
+
+document.querySelectorAll('.madd i.fa-plus').forEach(function(icon) {
+    icon.classList.replace('fa-plus', 'fa-eye');
+});
 
 // Card click open popup
 document.querySelectorAll('.mcard').forEach(function(card) {
     var priceDisplay = card.querySelector('.mprice');
     if (priceDisplay) {
         var price = card.getAttribute('data-price');
-        priceDisplay.textContent = price ? price + ' TL' : 'Fiyat için WhatsApp';
+        var priceLabel = card.getAttribute('data-price-label');
+        priceDisplay.textContent = price ? (priceLabel || price + ' TL') : '';
     }
     card.addEventListener('click', function() {
         openMenuPop(this);
@@ -282,15 +282,7 @@ function closeMenuPop() {
     document.body.style.overflow = '';
 }
 
-// Qty +/-
-document.getElementById('mpPlus').addEventListener('click', function() {
-    document.getElementById('mpQnum').textContent = ++mpQty;
-});
-document.getElementById('mpMinus').addEventListener('click', function() {
-    if (mpQty > 1) document.getElementById('mpQnum').textContent = --mpQty;
-});
-
-var whatsappNumber = '905323944599';
+var whatsappNumber = '905449666361';
 
 function openWhatsAppMessage(message) {
     var url = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
@@ -323,12 +315,6 @@ function sendFormToWhatsApp(form, heading, confirmationId) {
     confirmation.style.display = 'block';
     confirmation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
-
-document.getElementById('mpAddCart').addEventListener('click', function() {
-    var title = document.getElementById('mpTitle').textContent;
-    openWhatsAppMessage('Merhaba, sipariş vermek istiyorum.\nÜrün: ' + title + '\nAdet: ' + mpQty + '\nGüncel fiyat ve teslimat bilgisi hakkında bilgi verebilir misiniz?');
-    closeMenuPop();
-});
 
 document.getElementById('reservationForm').addEventListener('submit', function(e) {
     e.preventDefault();
