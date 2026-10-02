@@ -1909,8 +1909,8 @@ footer {
 /* ===================== UTILITIES ===================== */
 .music-control {
   position: fixed;
-  right: 80px;
-  bottom: 32px;
+  left: 24px;
+  bottom: 28px;
   z-index: 9989;
 }
 
@@ -1942,7 +1942,7 @@ footer {
 
 .music-control iframe {
   position: absolute;
-  right: 0;
+  left: 0;
   bottom: 42px;
   width: 352px;
   max-width: calc(100vw - 32px);
