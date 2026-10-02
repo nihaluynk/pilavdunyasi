@@ -1907,6 +1907,50 @@ footer {
 }
 
 /* ===================== UTILITIES ===================== */
+.music-control {
+  position: fixed;
+  right: 80px;
+  bottom: 32px;
+  z-index: 9989;
+}
+
+.music-control summary {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(25, 20, 20, 0.72);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  list-style: none;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+
+.music-control summary::-webkit-details-marker {
+  display: none;
+}
+
+.music-control summary:hover,
+.music-control summary:focus-visible,
+.music-control[open] summary {
+  opacity: 1;
+}
+
+.music-control iframe {
+  position: absolute;
+  right: 0;
+  bottom: 42px;
+  width: 352px;
+  max-width: calc(100vw - 32px);
+  height: 152px;
+  border: 0;
+  border-radius: 12px;
+}
+
 #btt {
   position: fixed;
   bottom: 28px;
